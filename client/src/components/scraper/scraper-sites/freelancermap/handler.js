@@ -1,5 +1,4 @@
 const scrape = async (query) => {
-  console.log("hehe promises are easy");
   const url = new URL("http://localhost:3001/api/scrape");
   url.search = query || "? ";
   const response = await fetch(url);

@@ -1,4 +1,5 @@
-const express = require("express");
+import express from "express";
+import scrape from "./scrape.js";
 
 const PORT = process.env.PORT || 3001;
 
@@ -16,27 +17,11 @@ app.get("/api/upload", (req, res) => {
 
 app.get("/api/scrape", (req, res) => {
   res.set("Access-Control-Allow-Origin", "http://localhost:3000");
-  const puppeteer = require("puppeteer-extra");
+  const query = req.url.substring(req.url.indexOf("?") + 1, req.url.length);
 
-  // add stealth plugin and use defaults (all evasion techniques)
-  const StealthPlugin = require("puppeteer-extra-plugin-stealth");
-  puppeteer.use(StealthPlugin());
-
-  // puppeteer usage as normal
-  puppeteer.launch({ headless: false }).then(async (browser) => {
-    console.log("Running tests..");
-    const page = await browser.newPage();
-    await page.goto("https://www.freelancermap.de/login?ref=enterprise_modal");
-    await page.waitForTimeout(5000);
-    await page.screenshot({ path: "testresult.png", fullPage: false });
-    await browser.close();
-    console.log(`All done, check the screenshot. ✨`);
-  });
+  scrape(query).then();
   res.json({
-    message: `Scraping for ${req.url.substring(
-      req.url.indexOf("?") + 1,
-      req.url.length
-    )}`,
+    message: `Scraping for ${query} finished`,
   });
 });
 

@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import logoMap from "./scraper-sites/freelancermap/freelancermap_logo.svg";
+import logoDe from "./scraper-sites/freelancede/freelancede_logo.svg";
 import FreelancerMap from "./scraper-sites/freelancermap/freelancermap-component";
 
 const Scraper = () => {
@@ -11,9 +13,22 @@ const Scraper = () => {
       {freelancede && <div>freelancede</div>}
       {freelancermap || freelancede || (
         <>
-          <h1>Which site do you want to scrap?</h1>
-          <button onClick={() => setFreelancermap(true)}>freelancermap</button>
-          <button onClick={() => setFreelancede(true)}>freelanceDe</button>
+          <h1>
+            Which <span style={{ color: "blueviolet" }}>site</span> do you want
+            to scrape?
+          </h1>
+          <img
+            className="btnImg"
+            alt="freelancermap logo"
+            onClick={() => setFreelancermap(true)}
+            src={logoMap}
+          />
+          <img
+            className="btnImg"
+            alt="freelancede logo"
+            onClick={() => setFreelancede(true)}
+            src={logoDe}
+          />
         </>
       )}
     </div>

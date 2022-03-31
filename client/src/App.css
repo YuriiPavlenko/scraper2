@@ -3,13 +3,32 @@
 }
 
 .App-logo {
+  z-index: 100;
   height: 40vmin;
   pointer-events: none;
 }
 
+.btnImg{
+  height: 80px;
+  width: 350px;
+  margin: 30px;
+  border: solid;
+  border-radius: 20px;
+  border-color: black;
+  background-color: #34495e;
+}
+
+.btnImg:hover{
+  background-color:#2f394d;
+}
+
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+    animation: Scraper infinite 4s ease-in;
+    animation: name duration timing-function delay iteration-count direction fill-mode;
+  }
+  #background{
+    animation: Background-Scraper infinite 4s ease-in;
   }
 }
 
@@ -24,15 +43,150 @@
   color: white;
 }
 
+.hehe{
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content:start;
+}
+
+#background{
+  width: 20px;
+  height: 304px;
+  display: block;
+  float: "right";
+  z-index: 100;
+  background-color: antiquewhite;
+  z-index: 50;
+}
+
+#query{
+  height: 40px;
+  font-size: x-large;
+  width: 100%;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  appearance: none;
+  background-color: #2f394d;
+}
+
 .App-link {
   color: #61dafb;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+@keyframes Scraper {
+  0% {
+    transform: translateX(0px);
   }
-  to {
-    transform: rotate(360deg);
+  50% {
+    transform: translateX(900px);
   }
+  75%{
+    transform: translateX(0px);
+  }
+  100%{
+    transform: translateX(0px);
+  }
+}
+
+@keyframes Background-Scraper {
+  0% {
+    width: 0px;
+  }
+  50% {
+    width: 900px;
+  }
+  75%{
+    width: 0px;
+  }
+  100%{
+    width: 0px;
+  }
+}
+
+.btn {
+  border: none;
+  font-size: inherit;
+  color: inherit;
+  background: none;
+  cursor: pointer;
+  padding: 25px 80px;
+  display: inline-block;
+  margin: 15px 30px;
+  letter-spacing: 1px;
+  font-weight: 700;
+  outline: none;
+  position: relative;
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  transition: all 0.3s;
+}
+
+.btn:after {
+  content: '';
+  position: absolute;
+  z-index: -1;
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  transition: all 0.3s;
+}
+
+/* Pseudo elements for icons */
+.btn:before {
+  font-family: 'FontAwesome';
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  position: relative;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Icon separator */
+.btn-sep {
+  padding: 25px 60px 25px 120px;
+}
+
+.btn-sep:before {
+  background: rgba(0,0,0,0.15);
+}
+
+.btn-4 {
+  background: #34495e;
+  color: blueviolet;
+}
+
+.btn-4:hover {
+  background: #2c3e50;
+}
+
+.btn-4:active {
+  background: #2c3e50;
+  top: 2px;
+}
+
+.btn-4:before {
+  position: absolute;
+  height: 100%;
+  left: 0;
+  top: 0;
+  line-height: 2.5;
+  font-size: 140%;
+  width: 60px;
+}
+
+/* Icons */
+
+.icon-scrape:before {
+  content: "🪒";
+}
+
+.icon-start:before {
+  content: "🏇";
+}
+
+.icon-import:before {
+  content: "💾";
 }

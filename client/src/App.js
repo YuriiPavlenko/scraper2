@@ -1,4 +1,4 @@
-import logo from "./logo.svg";
+import scraper from "./scraper.svg";
 import "./App.css";
 import React, { useState } from "react";
 import Scraper from "./components/scraper/scraper-component";
@@ -11,13 +11,30 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
+        <div className="hehe">
+          <img src={scraper} className="App-logo" alt="logo" />
+          <span id="background"></span>
+        </div>
         {scraping || importing || (
           <>
-            <h1>Do you want to scrape data or import it to Vincere?</h1>
+            <h1>
+              To <span style={{ color: "blueviolet" }}>scrape</span>, or to{" "}
+              <span style={{ color: "blueviolet" }}>import</span>, that is the
+              question 💀:
+            </h1>
             <div>
-              <button onClick={() => setScraping(true)}>Scrape</button>
-              <button onClick={() => setImporting(true)}>Import</button>
+              <button
+                class="btn btn-4 btn-sep icon-scrape"
+                onClick={() => setScraping(true)}
+              >
+                Scrape
+              </button>
+              <button
+                class="btn btn-4 btn-sep icon-import"
+                onClick={() => setImporting(true)}
+              >
+                Import
+              </button>
             </div>
           </>
         )}
